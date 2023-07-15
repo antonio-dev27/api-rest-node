@@ -1,0 +1,33 @@
+body{
+	font-family:  "Gill Sans Extrabold", Helvetica, sans-serif ;
+	background: hsla(100, 50%, 45%, 0.185);
+}
+
+.menu{
+	list-style: none;
+	padding: 0;
+	background: #000f11;
+	width: 70%;
+	max-width: 940px;
+	margin: auto;
+}
+
+.menu li a{
+	text-decoration: none;
+	color: white;
+	padding: 28px;
+	display: block;
+}
+
+.menu li{
+	display: inline-block;
+	text-align: center;
+}
+
+.menu li a:hover{
+	background: #1163ae;
+}
+
+.nav-link {
+	font-size: 19px;
+  }

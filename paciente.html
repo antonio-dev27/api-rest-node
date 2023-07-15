@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Pacientes</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+        <base href="/"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <script type="text/javascript" src="/js/paciente.js"></script>
+    </head>
+
+
+    <body>
+
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Menú</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="doctor.html">Doctores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="paciente.html">Pacientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="especialidad.html">Especialidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="cita.html">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="consulta.html">Consultas</a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    
+
+        <br/>
+
+        <div class="container">
+            <h2>Pacientes</h2>
+
+            <button type="button" class="btn btn-primary" onclick="nuevoPaciente()">Nuevo Paciente</button>
+
+            <div id="tabla"></div>
+            
+             <!-- Modal para el formulario de guardar o actualizar -->
+            <div class="modal fade" id="modalPaciente" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tituloModalPaciente">Titulo</h5>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <label for="id" class="form-label">ID Paciente</label>
+                                    <input type="text" class="form-control" id="id" placeholder="Id del Paciente" disabled>
+                                </div>
+                                <div class="col-sm-12 col-lg-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre del Paciente">
+                                </div>
+                                <div class="col-sm-12 col-lg-6">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" id="apellido" placeholder="Apellido del Paciente">
+                                </div>
+                                <div class="col-sm-12 col-lg-6">
+                                    <label for="edad" class="form-label">Edad</label>
+                                    <input type="text" class="form-control" id="edad" placeholder="Edad del Paciente">
+                                </div>
+                                <div class="col-sm-12 col-lg-6">
+                                    <label for="telefono" class="form-label">Telefono</label>
+                                    <input type="text" class="form-control" id="telefono" placeholder="Telefono del Paciente">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="guardarCambios()">Guardar</button>
+                            <button type="button" class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fin del modal de formulario -->
+            
+            <!-- modal de mensaje de confirmacion -->
+            <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tituloModalMensaje">Mensaje</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p id="mensaje">
+                                
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onclick="cerrarModalMensaje()">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fin del modal de mensaje de confirmacion -->
+            
+       </div>
+
+       <br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+       <footer>
+           <div class="container" style="padding: 80px 0;" align="center">
+       
+           </div>
+           <div style="background: #004872;">
+               <p style="color: #91BEC2; padding: 15px 0;" align="center">
+                    &copy; 2023 Copyright | <a>Created By: JAIME ANTONIO </a>
+               </p>
+           </div>
+       </footer> 
+
+    </body>
+</html>
